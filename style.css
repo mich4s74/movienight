@@ -1,0 +1,109 @@
+/* colors 
+#7a2D00
+#fb8c4b
+#fa5b00
+#7a4425
+#c74900
+*/
+
+/* Overordnet GRID til side */
+#grid_container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "intro_header"
+        "second_nav"
+        "gallery"
+        "footer";
+    overflow-x: hidden;
+}
+
+header {
+    grid-area: header;
+}
+
+#second_nav {
+    grid-area: second_nav;
+}
+
+#intro_header {
+    grid-area: intro_header;
+}
+
+main {
+    grid-area: gallery;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* Galleri GRID */
+#gallery {
+    --auto-grid-min-size: 24rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,
+            minmax(var(--auto-grid-min-size), 1fr));
+    background-color: #000;
+}
+
+#artist .navn,
+#artist .billede,
+#artist .genre {
+    grid-area: 1/1;
+    color: #fff;
+}
+
+#artist .genre {
+    margin-top: 5rem;
+}
+
+#artist .billede {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+#artist .billede:hover {
+    filter: grayscale(0%);
+    opacity: 0.6;
+}
+
+#artist .navn,
+#artist .genre {
+    pointer-events: none;
+}
+
+#artist .overlay {
+    grid-area: 1/1;
+    background: #000;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: filter 0.5s ease;
+    display: grid;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#intro_header {
+    display: flex;
+    align-items: center;
+    max-width: 45rem;
+    margin: 2rem auto;
+    gap: 12px;
+    padding: 5rem 1rem;
+    background-image: url(images/watermark.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+#intro_header img {
+    width: 9rem;
+    align-items: center;
+}
