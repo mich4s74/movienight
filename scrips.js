@@ -1,9 +1,9 @@
 // VARIABLER
 let artister;
-const url = "https://artister-c311.restdb.io/rest/artister";
+const url = "https://movienight-aa6f.restdb.io/rest/film";
 const myHeaders = {
     headers: {
-        "x-apikey": "613a5a7043cedb6d1f97ef14",
+        "x-apikey": "631b9759fdc15b0265f1728c",
     },
 };
 const dest = document.querySelector("#gallery");
@@ -30,9 +30,9 @@ function visArtister() {
     artister.forEach((artist) => {
         if (filterArtist == "alle" || filterArtist == artist.genre) {
             const theClone = theTemplatePointer.cloneNode(true).content;
-            theClone.querySelector("h1").textContent = artist.navn;
-            theClone.querySelector("img").src = billedUrl + artist.billedenavn;
-            theClone.querySelector("img").alt = artist.navn;
+            theClone.querySelector("h1").textContent = artist.titel;
+            theClone.querySelector("img").src = billedUrl + artist.coverbillede + ".jpeg";
+            theClone.querySelector("img").alt = artist.titel;
             theClone.querySelector("p.genre").textContent = artist.genre;
 
             dest.appendChild(theClone);
