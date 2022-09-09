@@ -46,7 +46,7 @@ function visArtister() {
 
 // DIRIGERER TIL SINGLE ARTIST MED KORREKT ID
 function visSingle(artist) {
-    location.href = `/kea/tema7/t7-gruppeprojekt/detalje.html?id=${artist._id}`;
+    location.href = `/kea/tema7/t7-gruppeprojekt/SIDEHER.html?id=${artist._id}`;
 }
 
 
