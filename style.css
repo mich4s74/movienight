@@ -52,6 +52,11 @@ footer {
     text-align: center;
 }
 
+#gallery article .billede,
+article .navn {
+    cursor: pointer;
+}
+
 #film .navn,
 #film .genre {
     text-align: center;
@@ -89,10 +94,6 @@ footer {
 }
 */
 
-#film .navn,
-#film .genre {
-    pointer-events: none;
-}
 
 #film .billede {
     border-radius: 1rem;
