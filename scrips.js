@@ -44,6 +44,10 @@ function visFilm() {
 }
 
 // DIRIGERER TIL SINGLE ARTIST MED KORREKT ID
+function klikKnap() {
+    console.log('Alert Showed');
+}
+
 function visSingle(film) {
     location.href = `/kea/tema7/t7-gruppeprojekt/single.html?id=${film._id}`;
     location.href = `./single.html?id=${film._id}`; // slet evt. når live

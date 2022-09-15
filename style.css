@@ -65,7 +65,7 @@ article .navn {
     font-size: 1.2rem;
 }
 
-.koeb_knap {
+#koeb_knap {
     background-color: #fff;
     color: #911011;
     border: none;
