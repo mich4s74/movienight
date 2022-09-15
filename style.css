@@ -66,9 +66,9 @@ article .navn {
 }
 
 .koeb_knap {
-    background-color: #8f0008;
+    background-color: #fff;
+    color: #911011;
     border: none;
-    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
