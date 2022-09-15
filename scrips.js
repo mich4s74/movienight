@@ -1,5 +1,5 @@
 // VARIABLER
-let artister;
+let film;
 const url = "https://movienight-aa6f.restdb.io/rest/film";
 const myHeaders = {
     headers: {
@@ -9,7 +9,7 @@ const myHeaders = {
 const dest = document.querySelector("#gallery");
 const theTemplatePointer = document.querySelector("template");
 const billedUrl = "images/resized_images/";
-let filterArtist = "alle";
+let filterFilm = "alle";
 
 
 // FETCHER JSON DATAEN NÅR DOM CONTENT ER LOADED IND
@@ -17,36 +17,36 @@ document.addEventListener("DOMContentLoaded", getJson);
 
 async function getJson() {
     let jsonData = await fetch(url, myHeaders);
-    artister = await jsonData.json();
-    console.log("Artister", artister);
+    film = await jsonData.json();
+    console.log("Film", film);
 
-    visArtister();
+    visFilm();
     addEventListenersToButtons();
 }
 
 // VISER JSON DATAEN I GALLERIET OG INDSÆTTER DYNAMISK CONTENT
-function visArtister() {
+function visFilm() {
     dest.innerHTML = "";
-    artister.forEach((artist) => {
-        if (filterArtist == "alle" || filterArtist == artist.genre) {
+    film.forEach((film) => {
+        if (filterFilm == "alle" || filterFilm == film.status) {
             const theClone = theTemplatePointer.cloneNode(true).content;
-            theClone.querySelector("h1").textContent = artist.titel;
-            theClone.querySelector("img").src = billedUrl + artist.coverbillede + ".jpeg";
-            theClone.querySelector("img").alt = artist.titel;
-            theClone.querySelector("p.genre").textContent = artist.genre;
+            theClone.querySelector("h1").textContent = film.titel;
+            theClone.querySelector("img").src = billedUrl + film.coverbillede + ".jpeg";
+            theClone.querySelector("img").alt = film.titel;
 
             dest.appendChild(theClone);
 
             dest.lastElementChild.addEventListener("click", () => {
-                visSingle(artist);
+                visSingle(film);
             });
         }
     });
 }
 
 // DIRIGERER TIL SINGLE ARTIST MED KORREKT ID
-function visSingle(artist) {
-    location.href = `/kea/tema7/t7-gruppeprojekt/SIDEHER.html?id=${artist._id}`;
+function visSingle(film) {
+    location.href = `/kea/tema7/t7-gruppeprojekt/single.html?id=${film._id}`;
+    location.href = `./single.html?id=${film._id}`; // slet evt. når live
 }
 
 
@@ -59,8 +59,8 @@ function addEventListenersToButtons() {
 
 // FILTRERER BASERET PÅ filterArtist I VisArtister funktionen
 function filtrering() {
-    filterArtist = this.dataset.artist;
-    visArtister();
+    filterFilm = this.dataset.film;
+    visFilm();
 }
 
 /*

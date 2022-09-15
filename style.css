@@ -40,54 +40,62 @@ footer {
 
 /* Galleri GRID */
 #gallery {
-    --auto-grid-min-size: 24rem;
+    --auto-grid-min-size: 14rem;
     display: grid;
     grid-template-columns: repeat(auto-fill,
             minmax(var(--auto-grid-min-size), 1fr));
     background-color: #000;
+    gap: 2rem;
+    padding-top: 5rem;
+    background: linear-gradient(145deg, #911011 0%, #040800 100%);
+    padding: 5rem 2rem;
+    text-align: center;
 }
 
-#artist .navn,
-#artist .billede,
-#artist .genre {
-    grid-area: 1/1;
+#film .navn,
+#film .genre {
+    text-align: center;
     color: #fff;
+    padding-top: 2rem;
+    font-size: 1.2rem;
 }
 
-#artist .genre {
-    margin-top: 5rem;
+.koeb_knap {
+    background-color: #8f0008;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 1rem;
 }
 
-#artist .billede {
+
+/*
+#film .billede {
     filter: grayscale(100%);
     transition: filter 0.5s ease;
     object-fit: cover;
     opacity: 0.3;
 }
 
-#artist .billede:hover {
+
+#film .billede:hover {
     filter: grayscale(0%);
     opacity: 0.6;
 }
+*/
 
-#artist .navn,
-#artist .genre {
+#film .navn,
+#film .genre {
     pointer-events: none;
 }
 
-#artist .overlay {
-    grid-area: 1/1;
-    background: #000;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    transition: filter 0.5s ease;
-    display: grid;
-    display: grid;
-    place-items: center;
-    place-content: center;
-    overflow: hidden;
-    cursor: pointer;
+#film .billede {
+    border-radius: 1rem;
 }
 
 #intro_header {

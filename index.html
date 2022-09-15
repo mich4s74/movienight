@@ -24,11 +24,12 @@
         <header>
 
             <nav>
-                <a href="index.html"><img class="logo" src="images/logo.webp" alt="Logo" /></a>
+                <a href="index.html"><img class="logo" src="images/logotema7.svg" alt="Logo" /></a>
                 <ul id="menu">
                     <li><a href="index.html" class="nav_active">Forside</a></li>
                     <li><a href="#">Events</a></li>
                     <li><a href="#">Om os</a></li>
+                    <li><a href="#">Bio Profil</a></li>
                 </ul>
                 <div id="burger_btn">
                     <div class="stroke top"></div>
@@ -38,36 +39,21 @@
             </nav>
         </header>
 
-        <section id="intro_header">
-            <img src="images/vinyl.webp" alt="" />
-            <div>
-                <h2>Movie Night</h2>
-                <p>
-                    Velkommen til <b>movienight.dk</b> Vi har samlet nogle af de største film inden for genrene: Bladrer
-                    igennem galleriet, for at få viden omkring din yndlingsartist.
-                </p>
-            </div>
-        </section>
-
         <section id="second_nav">
             <ul>
-                <li class="filter" data-artist="alle">Alle</li>
-                <li class="filter" data-artist="Rap">Aktuelle film</li>
-                <li class="filter" data-artist="Dancehall">Kommende film</li>
+                <li class="filter" data-film="alle">Alle</li>
+                <li class="filter" data-film="Aktuelle">Aktuelle film</li>
+                <li class="filter" data-film="Kommende">Kommende film</li>
             </ul>
         </section>
 
         <main>
             <section id="gallery">
                 <template>
-                    <article id="artist">
-                        <div class="overlay">
-                            <img class="billede" src="" alt="" />
-                            <h1 class="navn"></h1>
-                            <p class="beskrivelse"></p>
-                            <p class="genre"></p>
-                            <p class="hits"></p>
-                        </div>
+                    <article id="film">
+                        <img class="billede" src="" alt="" />
+                        <h1 class="navn"></h1>
+                        <button class="koeb_knap">Køb Billet</button>
                     </article>
                 </template>
             </section>
