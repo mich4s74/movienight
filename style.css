@@ -64,19 +64,6 @@ article .navn {
   font-size: 1.2rem;
 }
 
-<<<<<<< HEAD
-#koeb_knap {
-    background-color: #fff;
-    color: #911011;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 2rem;
-    cursor: pointer;
-    margin-top: 1rem;
-=======
 .koeb_knap {
   background-color: #fff;
   color: #911011;
@@ -89,7 +76,6 @@ article .navn {
   cursor: pointer;
   margin-top: 1rem;
   display: inline-block;
->>>>>>> 94f63d0bd20939d2f3f0ef17b772bb2622a20846
 }
 
 /*
