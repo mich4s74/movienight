@@ -34,7 +34,7 @@ footer {
 #gallery {
     display: grid;
     --auto-grid-min-size: 18rem;
-    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min-size), 1fr));
     background-color: #000;
     gap: 2rem;
     padding-top: 5rem;
@@ -57,23 +57,9 @@ footer {
 
 
 
-/*
-#film .billede {
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
-    object-fit: cover;
-    opacity: 0.3;
-}
-
-
-#film .billede:hover {
-    filter: grayscale(0%);
-    opacity: 0.6;
-}
-*/
-
 #film .billede {
     border-radius: 1rem;
+    object-fit: cover;
 }
 
 #intro_header {
