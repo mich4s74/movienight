@@ -51,8 +51,7 @@ footer {
     text-align: center;
 }
 
-#gallery article .billede,
-article .navn {
+#gallery article .billede {
     cursor: pointer;
 }
 
