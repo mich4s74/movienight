@@ -2,16 +2,109 @@
 <html lang="en">
 
 <head>
-    <title>TITLE</title>
-    <meta charset="UTF-8">
-    <meta name="robots" content="index,follow"> <!-- Helps with crawlers -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Helps with responsiveness -->
-    <meta name="description" content="This is the description of the website..."> <!-- Description of the website -->
-    <link rel="icon" href="/html5.ico"> <!-- Favicon -->
+    <title>film</title>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index,follow" />
+    <!-- Helps with crawlers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Helps with responsiveness -->
+    <meta name="description" content="This is the description of the website..." />
+    <!-- Description of the website -->
+    <link rel="icon" href="/html5.ico" />
+    <!-- Favicon -->
+    <link rel="stylesheet" href="mutual.css" />
+    <link rel="stylesheet" href="detalje.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Signika+Negative&family=Trirong&display=swap"
+        rel="stylesheet" />
 </head>
-
-<body>
-
+<header>
+    <nav>
+        <a href="index.html"><img class="logo" src="images/logotema7.svg" alt="Logo" /></a>
+        <ul id="menu">
+            <li><a href="index.html" class="nav_active">Forside</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Om os</a></li>
+            <input type="text" placeholder="Søg..">
+            <a href="bioprofil.html"><button class="koeb_knap">Bio Profil</button></a>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2 class="genre"></h2>
+    <img class="billede" src="" alt="" />
+    <img class="screenshot" src="" alt="" />
+    <h2 class="titel"></h2>
+    <h3 class="udgivelse"></h3>
+    <h3 class="varighed"></h3>
+    <h3 class="instruktør"></h3>
+    <h3>Beskrivelse af filmen</h3>
+    <p class="beskrivelse"></p>
+</main>
+<footer>Copyright</footer>
 </body>
+<script>
+    // VARIABLER
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    const billedUrl = "images/resized_images/";
+    const url = `https://movienight-aa6f.restdb.io/rest/film/${id}`;
+    const myHeaders = {
+        headers: {
+            "x-apikey": "631b9759fdc15b0265f1728c",
+        },
+    };
+
+    // FETCHER JSON DATAEN NÅR DOM CONTENT ER LOADED IND
+    document.addEventListener("DOMContentLoaded", getJson);
+
+    async function getJson() {
+        let jsonData = await fetch(url, myHeaders);
+        film = await jsonData.json();
+        console.log("Film", film);
+
+        visFilm(film);
+    }
+
+    // VISER JSON DATAEN PÅ SIDEN OG INDSÆTTER DYNAMISK CONTENT
+    function visFilm() {
+        document.querySelector(".genre").textContent = film.genre;
+        document.querySelector(".billede").src = billedUrl + film.coverbillede + ".jpeg";
+        document.querySelector(".screenshot").src = billedUrl + film.screenshot + ".jpeg";
+        document.querySelector(".titel").textContent = film.titel;
+        document.querySelector(".udgivelse").textContent = film.udgivelsesdato;
+        document.querySelector(".varighed").textContent = film.varighed;
+        document.querySelector(".beskrivelse").textContent = film.beskrivelse;
+        document.querySelector(".instruktør").textContent = film.instruktør;
+    }
+
+    // BURGERMENU
+    window.addEventListener("load", sidenVises);
+
+    // Når siden vises, lyttes der efter klik på burgerBtn
+    function sidenVises() {
+        const burgerBtn = document.querySelector("#burger_btn");
+        burgerBtn.addEventListener("click", openMenu);
+    }
+    // Ved klik på burgerBtn, starter funktion openMenu, som åbner menuen, og der lyttes igen efter klik på burgerBtn
+    function openMenu() {
+        const burgerBtn = this;
+        const menu = document.querySelector("#menu");
+
+        this.removeEventListener("click", openMenu);
+        this.classList.add("open");
+        menu.classList.add("open");
+        this.addEventListener("click", closeMenu);
+    }
+    // Ved klik på burgerBtn, starter funktion closeMenu, som lukker menuen og der lyttes igen efter klik på burgerBtn
+    function closeMenu() {
+        const burgerBtn = this;
+        const menu = document.querySelector("#menu");
+
+        this.removeEventListener("click", closeMenu);
+        menu.classList.remove("open");
+        this.addEventListener("click", openMenu);
+    }
+</script>
 
 </html>
