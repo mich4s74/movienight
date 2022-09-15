@@ -2,45 +2,42 @@
 let film;
 const url = "https://movienight-aa6f.restdb.io/rest/film";
 const myHeaders = {
-    headers: {
-        "x-apikey": "631b9759fdc15b0265f1728c",
-    },
+  headers: {
+    "x-apikey": "631b9759fdc15b0265f1728c",
+  },
 };
 const dest = document.querySelector("#gallery");
 const theTemplatePointer = document.querySelector("template");
 const billedUrl = "images/resized_images/";
 let filterFilm = "alle";
 
-
 // FETCHER JSON DATAEN NÅR DOM CONTENT ER LOADED IND
 document.addEventListener("DOMContentLoaded", getJson);
 
 async function getJson() {
-    let jsonData = await fetch(url, myHeaders);
-    film = await jsonData.json();
-    console.log("Film", film);
+  let jsonData = await fetch(url, myHeaders);
+  film = await jsonData.json();
+  console.log("Film", film);
 
-    visFilm();
-    addEventListenersToButtons();
+  visFilm();
+  addEventListenersToButtons();
 }
 
 // VISER JSON DATAEN I GALLERIET OG INDSÆTTER DYNAMISK CONTENT
 function visFilm() {
-    dest.innerHTML = "";
-    film.forEach((film) => {
-        if (filterFilm == "alle" || filterFilm == film.status) {
-            const theClone = theTemplatePointer.cloneNode(true).content;
-            theClone.querySelector("h1").textContent = film.titel;
-            theClone.querySelector("img").src = billedUrl + film.coverbillede + ".jpeg";
-            theClone.querySelector("img").alt = film.titel;
-
-            dest.appendChild(theClone);
-
-            dest.lastElementChild.addEventListener("click", () => {
-                visSingle(film);
-            });
-        }
-    });
+  dest.innerHTML = "";
+  film.forEach((film) => {
+    if (filterFilm == "alle" || filterFilm == film.status) {
+      const theClone = theTemplatePointer.cloneNode(true).content;
+      theClone.querySelector("h1").textContent = film.titel;
+      theClone.querySelector("img").src = billedUrl + film.coverbillede + ".jpeg";
+      theClone.querySelector("img").alt = film.titel;
+      theClone.querySelector("img").addEventListener("click", () => {
+        visSingle(film);
+      });
+      dest.appendChild(theClone);
+    }
+  });
 }
 
 // DIRIGERER TIL SINGLE ARTIST MED KORREKT ID
@@ -49,22 +46,21 @@ function klikKnap() {
 }
 
 function visSingle(film) {
-    location.href = `/kea/tema7/t7-gruppeprojekt/single.html?id=${film._id}`;
-    location.href = `./single.html?id=${film._id}`; // slet evt. når live
+  location.href = `/kea/tema7/t7-gruppeprojekt/single.html?id=${film._id}`;
+  location.href = `./single.html?id=${film._id}`; // slet evt. når live
 }
-
 
 // KIGGER EFTER HVILKET ELEMENT BLEV KLIKKET PÅ I FILTRERINGSMENU OG KØRER FUNKTIONEN FILTRERING
 function addEventListenersToButtons() {
-    document.querySelectorAll("#second_nav ul li").forEach((elm) => {
-        elm.addEventListener("click", filtrering);
-    });
+  document.querySelectorAll("#second_nav ul li").forEach((elm) => {
+    elm.addEventListener("click", filtrering);
+  });
 }
 
 // FILTRERER BASERET PÅ filterArtist I VisArtister funktionen
 function filtrering() {
-    filterFilm = this.dataset.film;
-    visFilm();
+  filterFilm = this.dataset.film;
+  visFilm();
 }
 
 /*
