@@ -8,63 +8,63 @@
 
 /* Overordnet GRID til side */
 #grid_container {
-    display: grid;
-    grid-template-areas:
-        "header"
-        "intro_header"
-        "second_nav"
-        "gallery"
-        "footer";
-    overflow-x: hidden;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "intro_header"
+    "second_nav"
+    "gallery"
+    "footer";
+  overflow-x: hidden;
 }
 
 header {
-    grid-area: header;
+  grid-area: header;
 }
 
 #second_nav {
-    grid-area: second_nav;
+  grid-area: second_nav;
 }
 
 #intro_header {
-    grid-area: intro_header;
+  grid-area: intro_header;
 }
 
 main {
-    grid-area: gallery;
+  grid-area: gallery;
 }
 
 footer {
-    grid-area: footer;
+  grid-area: footer;
 }
 
 /* Galleri GRID */
 #gallery {
-    --auto-grid-min-size: 14rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,
-            minmax(var(--auto-grid-min-size), 1fr));
-    background-color: #000;
-    gap: 2rem;
-    padding-top: 5rem;
-    background: linear-gradient(145deg, #911011 0%, #040800 100%);
-    padding: 5rem 2rem;
-    text-align: center;
+  --auto-grid-min-size: 14rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  background-color: #000;
+  gap: 2rem;
+  padding-top: 5rem;
+  background: linear-gradient(145deg, #911011 0%, #040800 100%);
+  padding: 5rem 2rem;
+  text-align: center;
 }
 
 #gallery article .billede,
 article .navn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #film .navn,
 #film .genre {
-    text-align: center;
-    color: #fff;
-    padding-top: 2rem;
-    font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+  padding-top: 2rem;
+  font-size: 1.2rem;
 }
 
+<<<<<<< HEAD
 #koeb_knap {
     background-color: #fff;
     color: #911011;
@@ -76,8 +76,21 @@ article .navn {
     border-radius: 2rem;
     cursor: pointer;
     margin-top: 1rem;
+=======
+.koeb_knap {
+  background-color: #fff;
+  color: #911011;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+>>>>>>> 94f63d0bd20939d2f3f0ef17b772bb2622a20846
 }
-
 
 /*
 #film .billede {
@@ -94,25 +107,24 @@ article .navn {
 }
 */
 
-
 #film .billede {
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 #intro_header {
-    display: flex;
-    align-items: center;
-    max-width: 45rem;
-    margin: 2rem auto;
-    gap: 12px;
-    padding: 5rem 1rem;
-    background-image: url(images/watermark.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
+  display: flex;
+  align-items: center;
+  max-width: 45rem;
+  margin: 2rem auto;
+  gap: 12px;
+  padding: 5rem 1rem;
+  background-image: url(images/watermark.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
 }
 
 #intro_header img {
-    width: 9rem;
-    align-items: center;
+  width: 9rem;
+  align-items: center;
 }
