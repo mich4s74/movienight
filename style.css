@@ -63,19 +63,7 @@ footer {
     font-size: 1.2rem;
 }
 
-.koeb_knap {
-    background-color: #fff;
-    color: #911011;
-    border: none;
-    padding: 1rem 3rem;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 2rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    display: inline-block;
-}
+
 
 /*
 #film .billede {
@@ -112,4 +100,12 @@ footer {
 #intro_header img {
     width: 9rem;
     align-items: center;
+}
+
+#second_nav ul li:hover {
+    text-decoration: underline;
+}
+
+#second_nav ul .nav_active {
+    text-decoration: underline;
 }
